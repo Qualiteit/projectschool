@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Login Page with Username and Password Example</title>
+<title>Login Page with Usernahe and Password Example</title>
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="./style.css">
 </head>
 <body>
