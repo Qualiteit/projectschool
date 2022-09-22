@@ -43,3 +43,7 @@ def findFace(img):
         return img, [myFaceListC[i],myFaceListArea[i]]
     else:
         return img,[[0,0],0]
+
+def trackFace(myDrone,info,w,pid,pError):
+
+    
