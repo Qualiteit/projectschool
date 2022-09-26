@@ -64,7 +64,7 @@ def trackFace(myDrone,info,w,pid,pError):
         error = 0
     if myDrone.send_rc_control:
         myDrone.send_rc_control(myDrone.left_right_velocity,
-                                myDrone.for_back_velocity
+                                myDrone.for_back_velocity,
                                 myDrone.up_down_velocity,
                                 myDrone.yaw_velocity)
 
