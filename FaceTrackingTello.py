@@ -4,7 +4,7 @@ import cv2
 w,h = 360,240
 pid = [0.5,0.5,0]
 pError = 0
-startCounter = 0 # for no Flight 1 - for flight 0
+startCounter = 1 # for no Flight 1 - for flight 0
 
 myDrone = initializeTello()
 

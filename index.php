@@ -1,3 +1,6 @@
+<?
+include 'FaceTrackingTello.py';
+?>
 <html>
     <head>
         <title>Drones</title>
@@ -12,7 +15,8 @@
             <p>hi</p>
         </div>
         <div class="drone-actions">
-            <p>hi</p>
+            <p>Drone battery:</p>
+            <? echo shell_exec("python battery.py"); ?>
         </div>
     </div>
 </body>
