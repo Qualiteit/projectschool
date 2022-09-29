@@ -23,5 +23,19 @@ class Tello(object):
         self.MAX_TIME_OUT = 15.0
 
         def send_command(self, command):
+            self.log.append(Stats(command. len(self.log)))
+            self.socket.sendto(command.encode'utf-8'), self.tello_address)
+            print(f'sending command: {command} to {self.tello_ip}')
+
+            start =  time.time()
+            while not self.log[-1].got_response():
+                now = time.time()
+                diff = now - start 
+                if diff > self.MAX_TIME_OUT:
+                    print(f'Max timeout exceeded... command {command}')
+                    return
+                    print(f'Done! sent command: {command} to {self.tello_ip}')
+                    
+
 
 
