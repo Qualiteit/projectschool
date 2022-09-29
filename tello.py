@@ -17,7 +17,7 @@ class Tello(object):
         self.receive_thread.daemon = True
         self.receive_thread.start()
         
-        self.tello_ip = ''
+        self.tello_ip = '192.168.10.1'
         self.tello_port = 8889
         self.tello_address = (self.tello_ip, self.tello_port)
         self.log = []
