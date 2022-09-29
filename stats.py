@@ -25,4 +25,28 @@ class Stats(object):
 
     def print_stats(self):
 
-    
+    print(f'\nid{self.id}')
+    print(f'command{self.command}')
+    print(f'response{self.response}')
+    print(f'start_time{self.start_time}')
+    print(f'end_time{self.end_time}')
+    print(f'duration{self.duration}')
+
+    def got_response(self):
+
+    if self.response is None:
+        return False
+
+        else:
+            return True
+
+        def return_stats(self):
+
+            str = ''
+            str += f'\nid: {self.id}\n'
+            str += f'command: {self.command}\n'
+            str += f'response: {self.response}\n'
+            str += f'start_time: {self.start_time}\n'
+            str += f'end_time: {self.end_time}\n'
+            str += f'duration: {self.duration}\n'
+    return str
