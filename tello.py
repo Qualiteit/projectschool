@@ -1,6 +1,8 @@
 import socket
 import threading
 import time
+
+from numpy import true_divide
 from stats import Stats
 
 class Tello(object):
@@ -35,6 +37,25 @@ class Tello(object):
                     print(f'Max timeout exceeded... command {command}')
                     return
                     print(f'Done! sent command: {command} to {self.tello_ip}')
+
+
+                def _receive_thread(self):
+
+                    while true
+                    try:
+                        self.response, ip = self.socket.recvfrom(1204)
+                        print(f'from{ip} : {self.response}')
+
+                        self.log[-1].add_response(self.reponse)
+                        except Exception as exc:
+                            print(f'Caught exception socket.error :{exc}')
+
+                        def on_close(self):
+
+                            pass
+                        def get_log(self):
+
+                            return self.log
                     
 
 
