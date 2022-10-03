@@ -2,7 +2,7 @@
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
 define('DB_SERVER', '13.73.167.25');
-define('DB_USERNAME', 'root123');
+define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'mysql1234');
 define('DB_NAME', '127.0.0.1');
  
