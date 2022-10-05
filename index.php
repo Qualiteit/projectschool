@@ -1,5 +1,6 @@
 <?
 include 'FaceTrackingTello.py';
+// Including facetracking
 ?>
 <html>
     <head>
@@ -15,7 +16,7 @@ include 'FaceTrackingTello.py';
             <p>hi</p>
         </div>
         <div class="drone-actions">
-            <p>Drone battery:</p>
+            <p>Drone battery:</p> 
             <? echo shell_exec("python battery.py"); ?>
         </div>
     </div>
