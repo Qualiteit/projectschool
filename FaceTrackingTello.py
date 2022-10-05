@@ -2,7 +2,7 @@ from utils import *
 import cv2
 
 w,h = 560,440
-pid = [0.35,0.35,0]
+pid = [0.3,0.3,0]
 pError = 0
 startCounter = 0 # for no Flight 1 - for flight 0
 
@@ -13,6 +13,7 @@ while True:
     ## Flight
     if startCounter == 0:
         myDrone.takeoff()
+        myDrone.move_up(90)
         startCounter = 1
 
     ## Step 1
