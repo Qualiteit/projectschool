@@ -56,6 +56,7 @@ def trackFace(myDrone,info,w,pid,pError):
     print(speed)
     if info [0][0] !=0:
         myDrone.yaw_velocity = speed
+        myDrone.for_back_velocity = speed
     else:
          myDrone.for_back_velocity = 0
          myDrone.left_right_velocity = 0
