@@ -1,3 +1,4 @@
+from heapq import _heapify_max
 from djitellopy import tello
 import cv2
 import numpy as np
@@ -112,9 +113,74 @@ for x in range (0, rows):
                                                         cv2.putText(imgContour, "Go down", (20, 50) cv2.FONT_HERSHEY_COMPLEX, 1,(0,0,255), 3)
                                                         cv2.rectangle(imgContour,(int(frameWidth/2-deadZone), int(frameHeight/2)+deadZone),(int(frameWidth/2+deadZone),frameHeight),(0,0,255),cv2.FILLED)
                                                         else: dir=0
-                                                        
+
+                                                        def display(img):
+                                                            cv2.line(img,(int(frameWidth/2)-deadZone,0),(int(frameWidth/2)-deadZone,frameHeight),(255,255,0), 3)
+                                                             cv2.line(img,(int(frameWidth/2)+deadZone,0),(int(frameWidth/2)+deadZone,frameHeight),(255,255,0), 3)
+                                                             cv2.circle(img,(int(frameWidth/2), int(frameHeight/2)),5,(0,0,255),5)
+                                                              cv2.line(img,(0, int(frameHeight/2) -deadZone),(frameWidth, int(frameHeight/2)-deadZone),(255,255,0), 3)
+                                                            cv2.line(img,(0, int(frameHeight/2) +deadZone),(frameWidth, int(frameHeight/2)+deadZone),(255,255,0), 3)
+
+                                                            while true:
+
+                                                                frame_read = me.get_frame_read()
+                                                                myFrame = frame_read.frame
+                                                                img = cv2.resize(myFrame, (width,height))
+                                                                imgContour = img.copy()
+                                                                imgHsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+
+                                                                h_min = cv2.getTrackbarPos("HUE Min", "HSV")
+                                                                h_max = cv2.getTrackbarPos("HUE Max", "HSV")
+                                                                s_min = cv2.getTrackbarPos("SAT Min", "HSV")
+                                                                s_max = cv2.getTrackbarPos("SAT Max", "HSV")
+                                                                v_min = cv2.getTrackbarPos("VALUE Min", "HSV")
+                                                                v_max = cv2.getTrackbarPos("VALUE Max", "HSV")
+
+                                                                lower = np.array([h_min,s_min,v_min])
+    upper = np.array([h_max,s_max,v_max])
+    mask = cv2.inRange(imgHsv,lower,upper)
+    result = cv2.bitwise_and(img,img, mask = mask)
+    mask = cv2.cvtColor(mask, cv2.COLOR_GRAY2BGR)
+
+    imgBlur = cv2.GaussianBlur(result, (7, 7), 1)
+    imgGray = cv2.cvtColor(imgBlur, cv2.COLOR_BGR2GRAY)
+    threshold1 = cv2.getTrackbarPos("Threshold1", "Parameters")
+    threshold2 = cv2.getTrackbarPos("Threshold2", "Parameters")
+    imgCanny = cv2.Canny(imgGray, threshold1, threshold2)
+    kernel = np.ones((5, 5))
+    imgDil = cv2.dilate(imgCanny, kernel, iterations=1)
+    getContours(imgDil, imgContour)
+    display(imgContour)
+
+    if startCounter == 0:
+       me.takeoff()
+       startCounter = 1
 
 
+    if dir == 1:
+       me.yaw_velocity = -60
+    elif dir == 2:
+       me.yaw_velocity = 60
+    elif dir == 3:
+       me.up_down_velocity= 60
+    elif dir == 4:
+       me.up_down_velocity= -60
+    else:
+       me.left_right_velocity = 0; me.for_back_velocity = 0;me.up_down_velocity = 0; me.yaw_velocity = 0
+
+    if me.send_rc_control:
+       me.send_rc_control(me.left_right_velocity, me.for_back_velocity, me.up_down_velocity, me.yaw_velocity)
+    print(dir)
+
+    stack = stackImages(0.9, ([img, result], [imgDil, imgContour]))
+    cv2.imshow('Horizontal Stacking', stack)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        me.land()
+        break
+
+
+cv2.destroyAllWindows()
 
 
 
