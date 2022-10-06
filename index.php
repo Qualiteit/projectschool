@@ -29,6 +29,7 @@ include 'FaceTrackingTello.py';
         <button class="land-button button-general">Land</button>
         <button class="handcontrol-button button-general">Hand controls</button>
         <button class="facetracking-button button-general">Face tracking</button>
+        <button class="objecttracking-button button-general">Object tracking</button>
         </div>
     </div>
 </body>
