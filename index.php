@@ -14,12 +14,12 @@ include 'FaceTrackingTello.py';
     <div class="display-drone">
         <div class="drone-cam">
         <canvas id="video-canvas"></canvas>
-	        <script type="text/javascript" src="jsmpeg.min.js"></script>
-	            <script type="text/javascript">
-	          	    var canvas = document.getElementById('video-canvas');
-		            var url = 'ws://'+document.location.hostname;
-		            var player = new JSMpeg.Player(url, {canvas: canvas});
-	            </script>
+            <script type="text/javascript" src="jsmpeg.min.js"></script>
+            <script type="text/javascript">
+                var canvas = document.getElementById('video-canvas');
+                var url = 'ws://'+document.location.hostname+':3001/stream';
+                var player = new JSMpeg.Player(url, {canvas: canvas});
+            </script>
         </div>
         <div class="drone-actions">
             <p>Drone battery:</p> 
