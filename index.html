@@ -8,24 +8,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="./style.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type=text/javascript>
-            $('#TakeoffBtn').click(function () { //Button
+            $('#TakeoffBtn').click(function () { // Button
                 $('#TakeoffBtn').addClass('is-loading');
                 $.ajax({
-                    url: '/takeoff',
-                    type: 'POST',
-                });
-            });
-            $('#LandBtn').click(function () { //Button
-                $('#LandBtn').addClass('is-loading');
-                $.ajax({
-                    url: '/land',
-                    type: 'POST',
-                });
-            });
-            $('#HandControlBtn').click(function () { //Button
-                $('#HandControlBtn').addClass('is-loading');
-                $.ajax({
-                    url: '/handcontrol',
+                    url: '/dronetakeoff',
                     type: 'POST',
                 });
             });
@@ -46,8 +32,8 @@
             <p>Drone battery:</p> 
         <button class="connect-button button-general">Connect</button>
         <button class="takeoff-button button-general" id="TakeoffBtn" name="TakeoffBtn" type="submit">Takeoff</button>
-        <button class="land-button button-general" id="LandBtn" name="LandBtn" type="submit">Land</button>
-        <button class="handcontrol-button button-general" id="HandControlBtn" name="HandControlBtn" type="submit">Hand control</button>
+        <button class="land-button button-general">Land</button>
+        <button class="handcontrol-button button-general">Hand controls</button>
         <button class="facetracking-button button-general">Face tracking</button>
         <button class="objecttracking-button button-general">Object tracking</button>
         </div>

@@ -1,39 +1,19 @@
 from flask import Flask, render_template, Response, request, redirect, url_for
 from djitellopy import Tello
-import cv2
-import numpy as np
+from utils import *
 app = Flask(__name__)
 
 @app.route("/")
 def index():
     return render_template('index.html')
 
-@app.route('/takeoff', methods=['GET', 'POST'])
+@app.route('/dronetakeoff', methods=['GET', 'POST'])
 def connect():
-    print('Drone is taking off')
+    print('connecting to drone')
     try:
-        myDrone.connect()
-        myDrone.takeoff()
-    except:
-        print('something went wrong')
-    return render_template("index.html")
-
-@app.route('/land', methods=['GET', 'POST'])
-def connect():
-    print('Drone is landing')
-    try:
-        myDrone.connect()
-        myDrone.land()
-    except:
-        print('something went wrong')
-    return render_template("index.html")
-
-@app.route('/land', methods=['GET', 'POST'])
-def connect():
-    print('Drone is landing')
-    try:
-        myDrone.connect()
-        myDrone.land()
+        drone.connect()
+        print('The drone is connected!')
+        drone.takeoff()
     except:
         print('something went wrong')
     return render_template("index.html")
