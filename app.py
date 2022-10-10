@@ -13,8 +13,27 @@ def connect():
     print('Drone is taking off')
     try:
         myDrone.connect()
-        print('The drone is connected!')
         myDrone.takeoff()
+    except:
+        print('something went wrong')
+    return render_template("index.html")
+
+@app.route('/land', methods=['GET', 'POST'])
+def connect():
+    print('Drone is landing')
+    try:
+        myDrone.connect()
+        myDrone.land()
+    except:
+        print('something went wrong')
+    return render_template("index.html")
+
+@app.route('/land', methods=['GET', 'POST'])
+def connect():
+    print('Drone is landing')
+    try:
+        myDrone.connect()
+        myDrone.land()
     except:
         print('something went wrong')
     return render_template("index.html")
