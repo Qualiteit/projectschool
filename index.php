@@ -1,4 +1,7 @@
-
+<?
+include 'FaceTrackingTello.py';
+// Including facetracking
+?>
 <html>
     <head>
         <title>Drones</title>
@@ -6,6 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="./style.css">
+<<<<<<< HEAD:index.html
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type=text/javascript>
             $('#TakeoffBtn').click(function () { // Button
@@ -16,6 +20,8 @@
                 });
             });
         </script>
+=======
+>>>>>>> parent of 44c2fbb (summary):index.php
     </head>
 <body>
     <div class="display-drone">
@@ -30,8 +36,13 @@
         </div>
         <div class="drone-actions">
             <p>Drone battery:</p> 
+            <? echo shell_exec("python battery.py"); ?>
         <button class="connect-button button-general">Connect</button>
+<<<<<<< HEAD:index.html
         <button class="takeoff-button button-general" id="TakeoffBtn" name="TakeoffBtn" type="submit">Takeoff</button>
+=======
+        <button class="takeoff-button button-general">Takeoff</button>
+>>>>>>> parent of 44c2fbb (summary):index.php
         <button class="land-button button-general">Land</button>
         <button class="handcontrol-button button-general">Hand controls</button>
         <button class="facetracking-button button-general">Face tracking</button>
