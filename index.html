@@ -1,3 +1,4 @@
+
 <html>
     <head>
         <title>Drones</title>
@@ -7,13 +8,6 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet"><link rel="stylesheet" href="./style.css">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script type=text/javascript>
-            $('#TakeoffBtn').click(function () { // Button
-                $('#TakeoffBtn').addClass('is-loading');
-                $.ajax({
-                    url: '/takeoff',
-                    type: 'POST',
-                });
-            });
             $('#TakeoffBtn').click(function () { // Button
                 $('#TakeoffBtn').addClass('is-loading');
                 $.ajax({
@@ -37,7 +31,7 @@
         <div class="drone-actions">
             <p>Drone battery:</p> 
         <button class="connect-button button-general">Connect</button>
-        <button class="takeoff-button button-general" id="TakeoffBtn" type="submit">Takeoff</button>
+            <button class="takeoff-button button-general" id="TakeoffBtn" name="TakeoffBtn" type="submit">Takeoff</button>
         <button class="land-button button-general">Land</button>
         <button class="handcontrol-button button-general">Hand controls</button>
         <button class="facetracking-button button-general">Face tracking</button>
